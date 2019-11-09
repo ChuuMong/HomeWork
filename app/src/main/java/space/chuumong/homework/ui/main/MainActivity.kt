@@ -1,13 +1,12 @@
 package space.chuumong.homework.ui.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.lifecycle.Observer
 import org.koin.android.viewmodel.ext.android.getViewModel
 import space.chuumong.homework.R
 import space.chuumong.homework.databinding.ActivityMainBinding
 import space.chuumong.homework.ui.BaseActivity
+import space.chuumong.homework.ui.search.GithubUserActivity
 import space.chuumong.homework.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -26,6 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         binding.mainViewModel = mainViewModel
 
         mainViewModel.onClickSearchUser.observe(this, Observer {
+            GithubUserActivity.start(this)
         })
 
         mainViewModel.onClickUI.observe(this, Observer {
