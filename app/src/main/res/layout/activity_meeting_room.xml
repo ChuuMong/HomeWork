@@ -2,6 +2,15 @@
 <layout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="meetingRoomViewModel"
+            type="space.chuumong.homework.viewmodel.MeetingRoomViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,11 +32,12 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="@string/meeting_room_date"
+                android:text="@{meetingRoomViewModel.todayDate}"
                 android:textColor="@android:color/white"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="02월 12일 (수)" />
 
             <ImageView
                 android:layout_width="30dp"
@@ -49,38 +59,51 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tv_label_reservation_meeting_room"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:text="@string/meeting_room_reservation_meeting_room"
-            android:textColor="@android:color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cl_toolbar" />
-
-        <TextView
-            android:id="@+id/tv_reservation_meeting_room_count"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
-            android:textColor="@color/deep_sky_blue"
-            android:textSize="18sp"
-            app:layout_constraintStart_toEndOf="@id/tv_label_reservation_meeting_room"
-            app:layout_constraintTop_toBottomOf="@id/cl_toolbar"
-            tools:text="7" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_reservation_meeting_room"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_reservation_room"
             android:layout_width="0dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="14dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{meetingRoomViewModel.isEmptyReservationRoom ? View.GONE : View.VISIBLE}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_label_reservation_meeting_room" />
+            app:layout_constraintTop_toBottomOf="@id/cl_toolbar">
+
+            <TextView
+                android:id="@+id/tv_label_reservation_meeting_room"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="@string/meeting_room_reservation_meeting_room"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_reservation_meeting_room_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="@{meetingRoomViewModel.reservationRoomCount}"
+                android:textColor="@color/deep_sky_blue"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@id/tv_label_reservation_meeting_room"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="7" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_reservation_meeting_room"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_marginTop="14dp"
+                app:attachReservationMeetingRooms="@{meetingRoomViewModel.reservationRooms}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_label_reservation_meeting_room" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_meeting_room_info"
@@ -90,7 +113,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_reservation_meeting_room">
+            app:layout_constraintTop_toBottomOf="@id/cl_reservation_room">
 
             <View
                 android:id="@+id/view_can_reservation"

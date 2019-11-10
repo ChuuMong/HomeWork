@@ -26,11 +26,13 @@ constructor(context: Context, attr: AttributeSet? = null) : RelativeLayout(conte
         val flTime = view.findViewById<FlexboxLayout>(R.id.fl_time)
 
         for (i in START_TIME..END_TIME) {
-            flTime.addView(TextView(context).apply {
+            val tvTime = TextView(context).apply {
                 text = "$i"
                 setTextColor(ContextCompat.getColor(context, R.color.brownish_grey))
                 setTextSize(Dimension.SP, 12f)
-            })
+            }
+
+            flTime.addView(tvTime)
         }
 
         for (i in 0 until (END_TIME - START_TIME) * 2) {
@@ -78,14 +80,8 @@ constructor(context: Context, attr: AttributeSet? = null) : RelativeLayout(conte
 
     fun setMeetingRoomInfo(info: MeetingRoomInfo) {
         info.reservations.forEach {
-            val startTime = it.startTime.timeSplit()
-            val endTime = it.endTime.timeSplit()
-
-            val startTimeIndex = startTime.first.getTimeIndex() +
-                    if (startTime.second.isHalfTime()) 1 else 0
-            val endTimeIndex = endTime.first.getTimeIndex() +
-                    if (endTime.second.isHalfTime()) 1 else 0
-
+            val startTimeIndex = it.startTime.getSplitTimeIndex(true)
+            val endTimeIndex = it.endTime.getSplitTimeIndex(true)
             disableTimeLineView(startTimeIndex, endTimeIndex)
         }
     }

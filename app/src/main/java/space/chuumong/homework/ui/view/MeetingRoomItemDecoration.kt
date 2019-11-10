@@ -13,8 +13,6 @@ class MeetingRoomItemDecoration : RecyclerView.ItemDecoration() {
     companion object {
         private const val ITEM_BOTTOM_SIZE = 10
         private const val LAST_ITEM_BOTTOM_SIZE = 20
-
-
     }
 
     override fun getItemOffsets(

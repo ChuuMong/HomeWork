@@ -43,3 +43,13 @@ fun String.isHalfTime(): Boolean {
         false
     }
 }
+
+fun String.getSplitTimeIndex(isAddHalfTime: Boolean): Int {
+    val timeSplit = timeSplit()
+    var index = timeSplit.first.getTimeIndex()
+    if (isAddHalfTime && timeSplit.second.isHalfTime()) {
+        index += 1
+    }
+
+    return index
+}

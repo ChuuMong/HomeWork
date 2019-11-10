@@ -13,6 +13,7 @@ import space.chuumong.homework.databinding.ActivityMeetingRoomBinding
 import space.chuumong.homework.ui.BaseActivity
 import space.chuumong.homework.ui.adapter.MeetingRoomInfoAdapter
 import space.chuumong.homework.ui.view.MeetingRoomItemDecoration
+import space.chuumong.homework.ui.view.ReservationMeetingRoomDecoration
 import space.chuumong.homework.viewmodel.MeetingRoomViewModel
 
 class MeetingRoomActivity : BaseActivity<ActivityMeetingRoomBinding>() {
@@ -31,6 +32,12 @@ class MeetingRoomActivity : BaseActivity<ActivityMeetingRoomBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding.meetingRoomViewModel = meetingRoomViewModel
+
+        binding.rvReservationMeetingRoom.layoutManager =
+            LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvReservationMeetingRoom.addItemDecoration(ReservationMeetingRoomDecoration())
 
         binding.rvMeetingRoom.layoutManager = LinearLayoutManager(this)
         binding.rvMeetingRoom.addItemDecoration(MeetingRoomItemDecoration())
