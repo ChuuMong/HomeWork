@@ -6,9 +6,6 @@ import retrofit2.http.Query
 import space.chuumong.data.remote.model.response.GithubSearchUserResponse
 
 
-/**
- * Created by Home on 2019-11-09.
- */
 interface ApiService {
 
     @GET("search/users")

@@ -9,10 +9,6 @@ import space.chuumong.domain.entities.MeetingRoomInfo
 import space.chuumong.homework.R
 import space.chuumong.homework.ui.view.MeetingRoomTimeView
 
-
-/**
- * Created by Home on 2019-11-10.
- */
 class MeetingRoomInfoAdapter :
     RecyclerView.Adapter<MeetingRoomInfoAdapter.MeetingRoomInfoViewHolder>() {
 

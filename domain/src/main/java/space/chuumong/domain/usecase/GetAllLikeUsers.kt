@@ -5,9 +5,6 @@ import space.chuumong.domain.entities.GithubUser
 import space.chuumong.domain.repositories.GithubUserRepository
 
 
-/**
- * Created by Home on 2019-11-09.
- */
 class GetAllLikeUsers(private val repository: GithubUserRepository): UseCase<UseCase.None, List<GithubUser>>() {
 
     override fun run(params: None): Single<List<GithubUser>> {

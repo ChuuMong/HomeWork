@@ -4,10 +4,6 @@ import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-
-/**
- * Created by Home on 2019-11-10.
- */
 class ReservationMeetingRoomDecoration : RecyclerView.ItemDecoration() {
 
     companion object {
