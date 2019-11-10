@@ -49,4 +49,4 @@ private val apiModule = module {
     }
 }
 
-val appModule = listOf(apiModule, useCaseModule, viewModelModule, githubUserdataModule)
+val appModule = listOf(apiModule, useCaseModule, dataModule, viewModelModule, githubUserdataModule)

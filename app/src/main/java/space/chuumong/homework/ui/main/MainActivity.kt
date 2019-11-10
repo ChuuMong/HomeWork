@@ -6,7 +6,7 @@ import org.koin.android.viewmodel.ext.android.getViewModel
 import space.chuumong.homework.R
 import space.chuumong.homework.databinding.ActivityMainBinding
 import space.chuumong.homework.ui.BaseActivity
-import space.chuumong.homework.ui.search.GithubUserActivity
+import space.chuumong.homework.ui.github.GithubUserActivity
 import space.chuumong.homework.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {

@@ -50,6 +50,7 @@ dependencies {
     implementation Dependencies.okhttpLogging
 
     implementation Dependencies.rxjava
+    implementation Dependencies.rxAndroid
 
     implementation Dependencies.glide
     kapt Dependencies.glideComplier

@@ -10,7 +10,7 @@ import space.chuumong.domain.entities.GithubUser
 import space.chuumong.homework.R
 import space.chuumong.homework.ui.view.loadCircleImage
 
-class GithubUserAdapter(private val onClick: (GithubUser) -> Unit) :
+class GithubUserAdapter(private val onClick: (GithubUser, Int) -> Unit) :
     RecyclerView.Adapter<GithubUserAdapter.GithubUserViewHolder>() {
 
     private val users = mutableListOf<GithubUser>()
@@ -44,6 +44,26 @@ class GithubUserAdapter(private val onClick: (GithubUser) -> Unit) :
         notifyDataSetChanged()
     }
 
+    fun add(user: GithubUser) {
+        users.add(user)
+        notifyDataSetChanged()
+    }
+
+    fun delete(user: GithubUser) {
+        users.remove(user)
+        notifyDataSetChanged()
+    }
+
+    fun updateItem(item: GithubUser) {
+        val position = users.indexOfFirst { it.name == item.name }
+        if (position == -1) {
+            return
+        }
+
+        users[position] = item
+        notifyItemChanged(position)
+    }
+
     inner class GithubUserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val ivProfile = itemView.findViewById<ImageView>(R.id.iv_profile)
@@ -53,7 +73,7 @@ class GithubUserAdapter(private val onClick: (GithubUser) -> Unit) :
 
         init {
             itemView.setOnClickListener {
-                onClick(getItem(adapterPosition))
+                onClick(getItem(adapterPosition), adapterPosition)
             }
         }
 
@@ -71,6 +91,5 @@ class GithubUserAdapter(private val onClick: (GithubUser) -> Unit) :
                 ivLike.setImageResource(R.drawable.ic_favorite_border_black_24dp)
             }
         }
-
     }
 }

@@ -2,6 +2,8 @@
     <string name="app_name">HomeWork</string>
 
     <string name="network_error_retry">네트워크 통신중 에러가 발생하였습니다.\n다시 시도하시겠습니까?</string>
+    <string name="local_error_retry">내부 데이터 처리 중 에러가 발생하였습니다.\n다시 시도하시겠습니까?</string>
+    
     <string name="retry">재시도</string>
 
     <string name="search_github_user">Github 유저 검색</string>
@@ -12,6 +14,14 @@
     <string name="search_user_like">좋아요</string>
     <string name="search_user_search">검색</string>
 
+    <string name="save_like_user_error">좋아요 데이터 처리 중 에러가 발생하였습니다.</string>
+    <string name="delete_like_user_error">데이터 제거 중 에러가 발생하였습니다.</string>
+
     <string name="search_user_result_empty">검색결과가 존재하지 않습니다.</string>
     <string name="search_user_score_format">Score : %s</string>
+
+    <string name="like_user_empty_list">저장된 좋아요 목록이 없습니다.</string>
+    <string name="search_user_empty_name">검색어를 입력해주세요.</string>
+
+
 </resources>

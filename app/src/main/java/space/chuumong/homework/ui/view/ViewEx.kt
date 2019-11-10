@@ -2,6 +2,7 @@ package space.chuumong.homework.ui.view
 
 import android.app.Activity
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -39,4 +40,8 @@ fun Fragment.showNoTitleTwoButtonsDialog(
         .setCancelable(false)
         .create()
         .show()
+}
+
+fun Fragment.toast(message: String) {
+    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
 }

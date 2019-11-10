@@ -16,6 +16,11 @@ dependencies {
 
     implementation Dependencies.ktx
 
+    api Dependencies.room
+    kapt Dependencies.roomCompiler
+    implementation Dependencies.roomKtx
+    implementation Dependencies.roomRxjava
+
     implementation Dependencies.retrofit
 
     implementation Dependencies.okttp

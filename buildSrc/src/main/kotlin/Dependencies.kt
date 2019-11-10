@@ -11,6 +11,8 @@ object Versions {
     const val appComapt = "1.1.0"
     const val ktx = "1.0.2"
 
+    const val room = "2.2.0-rc01"
+
     const val constraintLayout = "1.1.3"
     const val recyclerview = "1.0.0"
     const val material = "1.1.0-beta02"
@@ -34,6 +36,11 @@ object Dependencies {
     const val appcompat = "androidx.appcompat:appcompat:${Versions.appComapt}"
 
     const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
+
+    const val room = "androidx.room:room-runtime:${Versions.room}"
+    const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
+    const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    const val roomRxjava = "androidx.room:room-rxjava2:${Versions.room}"
 
     const val constraintLayout =
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"

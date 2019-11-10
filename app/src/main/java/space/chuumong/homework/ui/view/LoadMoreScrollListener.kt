@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class LoadMoreScrollListener : RecyclerView.OnScrollListener() {
 
     companion object {
-        private const val VISIBLE_THRESHOLD = 5
+        private const val VISIBLE_THRESHOLD = 2
     }
 
     var isLoading = false
