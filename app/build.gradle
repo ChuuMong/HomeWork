@@ -38,6 +38,7 @@ dependencies {
     implementation Dependencies.constraintLayout
     implementation Dependencies.recyclerView
     implementation Dependencies.material
+    implementation Dependencies.flexbox
 
     implementation Dependencies.koin
     implementation Dependencies.koinViewModel

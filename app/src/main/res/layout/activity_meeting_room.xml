@@ -1,9 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/very_light_blue">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_toolbar"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:background="@android:color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="54dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="@string/meeting_room_date"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="35dp"
+                android:src="@drawable/ic_arrow_down"
+                app:layout_constraintStart_toEndOf="@id/tv_date"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="34dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_settings"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tv_label_reservation_meeting_room"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/meeting_room_reservation_meeting_room"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_toolbar" />
+
+        <TextView
+            android:id="@+id/tv_reservation_meeting_room_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/deep_sky_blue"
+            android:textSize="18sp"
+            app:layout_constraintStart_toEndOf="@id/tv_label_reservation_meeting_room"
+            app:layout_constraintTop_toBottomOf="@id/cl_toolbar"
+            tools:text="7" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_reservation_meeting_room"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_label_reservation_meeting_room" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_meeting_room_info"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="37dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rv_reservation_meeting_room">
+
+            <View
+                android:id="@+id/view_can_reservation"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:layout_marginStart="15dp"
+                android:background="@color/deep_sky_blue"
+                app:layout_constraintBottom_toBottomOf="@id/tv_can_reservation"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/tv_can_reservation" />
+
+            <TextView
+                android:id="@+id/tv_can_reservation"
+                android:layout_width="wrap_content"
+                android:layout_height="18dp"
+                android:layout_marginStart="5dp"
+                android:text="@string/meeting_room_can_reservation"
+                android:textColor="@color/brownish_grey"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/view_can_reservation"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <RadioGroup
+                android:id="@+id/rg_meeting_room_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:checkedButton="@id/rb_can_reservation"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioButton
+                    android:id="@+id/rb_can_reservation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="10dp"
+                    android:button="@drawable/selector_radio_button"
+                    android:paddingStart="4dp"
+                    android:text="@string/meeting_room_can_reservation"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_out_meeting"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginEnd="10dp"
+                    android:button="@drawable/selector_radio_button"
+                    android:paddingStart="4dp"
+                    android:text="@string/meeting_room_out_meeting"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="12sp" />
+
+                <RadioButton
+                    android:id="@+id/rb_my_reservation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:button="@drawable/selector_radio_button"
+                    android:paddingStart="4dp"
+                    android:text="@string/meeting_room_my_reservation"
+                    android:textColor="@color/brownish_grey"
+                    android:textSize="12sp" />
+
+            </RadioGroup>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_meeting_room"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="11dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rg_meeting_room_filter"
+                tools:listitem="@layout/item_meeting_room_info" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

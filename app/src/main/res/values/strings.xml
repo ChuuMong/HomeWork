@@ -21,5 +21,21 @@
 
     <string name="like_user_empty_list">저장된 좋아요 목록이 없습니다.</string>
     <string name="search_user_empty_name">검색어를 입력해주세요.</string>
+    <string name="meeting_room_date">02월 12일 (수)</string>
+    <string name="meeting_room_reservation_meeting_room">현재 사용 가능 회의실</string>
+    <string name="meeting_room_can_reservation">예약가능</string>
+    <string name="meeting_room_out_meeting">외부미팅</string>
+    <string name="meeting_room_my_reservation">내 예약</string>
+    <string name="meeting_room_current_time">현재시간</string>
+    <string name="meeting_room_time_9">9</string>
+    <string name="meeting_room_time_18">18</string>
+    <string name="meeting_room_time_17">17</string>
+    <string name="meeting_room_time_16">16</string>
+    <string name="meeting_room_time_15">15</string>
+    <string name="meeting_room_time_14">14</string>
+    <string name="meeting_room_time_13">13</string>
+    <string name="meeting_room_time_12">12</string>
+    <string name="meeting_room_time_11">11</string>
+    <string name="meeting_room_time_10">10</string>
 
 </resources>

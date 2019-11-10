@@ -4,12 +4,15 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.LinearLayoutManager
 import org.koin.android.viewmodel.ext.android.getViewModel
 import space.chuumong.data.Result
 import space.chuumong.domain.entities.MeetingRoomInfo
 import space.chuumong.homework.R
 import space.chuumong.homework.databinding.ActivityMeetingRoomBinding
 import space.chuumong.homework.ui.BaseActivity
+import space.chuumong.homework.ui.adapter.MeetingRoomInfoAdapter
+import space.chuumong.homework.ui.view.MeetingRoomItemDecoration
 import space.chuumong.homework.viewmodel.MeetingRoomViewModel
 
 class MeetingRoomActivity : BaseActivity<ActivityMeetingRoomBinding>() {
@@ -24,9 +27,14 @@ class MeetingRoomActivity : BaseActivity<ActivityMeetingRoomBinding>() {
     override fun getLayoutId() = R.layout.activity_meeting_room
 
     private val meetingRoomViewModel: MeetingRoomViewModel by lazy { getViewModel() as MeetingRoomViewModel }
+    private val meetingRoomInfoAdapter = MeetingRoomInfoAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        binding.rvMeetingRoom.layoutManager = LinearLayoutManager(this)
+        binding.rvMeetingRoom.addItemDecoration(MeetingRoomItemDecoration())
+        binding.rvMeetingRoom.adapter = meetingRoomInfoAdapter
 
         getMeetingRoomInfo()
     }
@@ -34,7 +42,7 @@ class MeetingRoomActivity : BaseActivity<ActivityMeetingRoomBinding>() {
     private fun getMeetingRoomInfo() {
         meetingRoomViewModel.getMeetingRoomInfo(object : Result<List<MeetingRoomInfo>> {
             override fun onSuccess(result: List<MeetingRoomInfo>) {
-
+                meetingRoomInfoAdapter.addAll(result)
             }
 
             override fun onFail(t: Throwable) {

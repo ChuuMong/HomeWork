@@ -1,6 +1,9 @@
 package space.chuumong.homework.ui.view
 
 import android.app.Activity
+import android.content.res.Resources
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -44,4 +47,14 @@ fun Fragment.showNoTitleTwoButtonsDialog(
 
 fun Fragment.toast(message: String) {
     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+}
+
+fun Int.toPx(): Int {
+    return (this * Resources.getSystem().displayMetrics.density).toInt()
+}
+
+fun View.setStartMargin(px: Int) {
+    val params = layoutParams as? ViewGroup.MarginLayoutParams ?: return
+    params.marginStart = px
+    layoutParams = params
 }

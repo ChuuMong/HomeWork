@@ -16,7 +16,7 @@ object Versions {
     const val constraintLayout = "1.1.3"
     const val recyclerview = "1.0.0"
     const val material = "1.1.0-beta02"
-
+    const val flexbox = "1.1.1"
     const val koin = "2.0.1"
 
     const val reftofit = "2.6.1"
@@ -46,6 +46,7 @@ object Dependencies {
         "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     const val material = "com.google.android.material:material:${Versions.material}"
+    const val flexbox = "com.google.android:flexbox:${Versions.flexbox}"
 
     const val koin = "org.koin:koin-android:${Versions.koin}"
     const val koinViewModel = "org.koin:koin-android-viewmodel:${Versions.koin}"
