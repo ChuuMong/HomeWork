@@ -13,4 +13,6 @@ val useCaseModule = module {
     factory { SaveLikeUser(get()) }
     
     factory { DeleteLikeUser(get()) }
+
+    factory { GetMeetingRoomInfo(get()) }
 }

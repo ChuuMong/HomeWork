@@ -16,30 +16,30 @@
         tools:context=".ui.main.MainActivity">
 
         <Button
-            android:id="@+id/btn_search_user"
+            android:id="@+id/btn_github_user"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@{() -> mainViewModel.onClickSearchUser()}"
+            android:onClick="@{() -> mainViewModel.onClickGithubUser()}"
             android:text="@string/search_github_user"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_ui"
+            android:id="@+id/btn_meeting_room"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
-            android:onClick="@{() -> mainViewModel.onClickUI()}"
-            android:text="@string/ui"
+            android:onClick="@{() -> mainViewModel.onClickMeetingRoom()}"
+            android:text="@string/meeting_room"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_search_user" />
+            app:layout_constraintTop_toBottomOf="@id/btn_github_user" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

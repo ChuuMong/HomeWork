@@ -7,6 +7,7 @@ import space.chuumong.homework.R
 import space.chuumong.homework.databinding.ActivityMainBinding
 import space.chuumong.homework.ui.BaseActivity
 import space.chuumong.homework.ui.github.GithubUserActivity
+import space.chuumong.homework.ui.meeting.MeetingRoomActivity
 import space.chuumong.homework.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -24,11 +25,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
         binding.mainViewModel = mainViewModel
 
-        mainViewModel.onClickSearchUser.observe(this, Observer {
+        mainViewModel.onClickGithubUser.observe(this, Observer {
             GithubUserActivity.start(this)
         })
 
-        mainViewModel.onClickUI.observe(this, Observer {
+        mainViewModel.onClickMeetingRoom.observe(this, Observer {
+            MeetingRoomActivity.start(this)
         })
     }
 }

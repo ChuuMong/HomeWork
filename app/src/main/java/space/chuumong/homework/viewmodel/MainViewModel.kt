@@ -5,17 +5,17 @@ import space.chuumong.homework.utils.SingleLiveEvent
 
 class MainViewModel : BaseViewModel() {
 
-    private val _onClickSearchUser = SingleLiveEvent<Any>()
-    private val _onClickUI = SingleLiveEvent<Any>()
+    private val _onClickGithubUser = SingleLiveEvent<Any>()
+    private val _onClickMeetingRoom = SingleLiveEvent<Any>()
 
-    val onClickSearchUser: LiveData<Any> get() = _onClickSearchUser
-    val onClickUI: LiveData<Any> get() = _onClickUI
+    val onClickGithubUser: LiveData<Any> get() = _onClickGithubUser
+    val onClickMeetingRoom: LiveData<Any> get() = _onClickMeetingRoom
 
-    fun onClickSearchUser() {
-        _onClickSearchUser.call()
+    fun onClickGithubUser() {
+        _onClickGithubUser.call()
     }
 
-    fun onClickUI() {
-        _onClickUI.call()
+    fun onClickMeetingRoom() {
+        _onClickMeetingRoom.call()
     }
 }
